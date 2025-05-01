@@ -1,0 +1,186 @@
+/* Add styles for the hidden class */
+.hidden {
+  display: none !important; /* Use !important to ensure it overrides other display properties */
+}
+
+:root {
+  --primary-color: #3399FF; /* Or choose a Vero-specific color */
+  --background-color: #111;
+  --text-color: #fff;
+}
+
+/* BASIC PAGE RESET & FONT */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+  font-family: 'Outfit', 'Poppins', sans-serif; /* Using fonts from reference */
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+/* Typography */
+h1 {
+  font-size: 32px; /* Example size */
+  color: var(--primary-color);
+  text-align: center; /* Center initial welcome message */
+  margin-top: 100px; /* Add some space below header */
+}
+
+/* Header & Navigation */
+header {
+  background-color: rgba(17, 17, 17, 0.8); /* Slightly transparent background */
+  -webkit-backdrop-filter: blur(10px); /* Add Safari compatibility */
+  backdrop-filter: blur(10px); /* Blur effect like reference */
+  padding: 10px 0;
+  position: fixed; /* Fixed header */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; /* Ensure header is on top */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center nav container */
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  width: 90%; /* Control width of nav content */
+  max-width: 1200px; /* Max width for larger screens */
+}
+
+.logo img {
+  height: 40px; /* Match reference logo height */
+  display: block; /* Prevents extra space below image */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px; /* Spacing between nav items */
+  margin-left: auto; /* Push the nav links to the right */
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 14.5px; /* Match reference font size */
+  padding: 5px 10px;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color); /* Highlight on hover */
+}
+
+/* Footer Basic Style */
+footer {
+  background-color: #000; /* Simple black footer */
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Push footer to bottom if content is short */
+  color: #aaa; /* Lighter text color for footer */
+  font-size: 14px;
+}
+
+/* Add font import later if needed */
+/* Add responsive styles later */
+
+/* Theme-aware Logo Display */
+
+/* Default (Light Mode): Show light logos, hide dark logos */
+.logo-light {
+  display: block; /* Or inline-block if needed */
+}
+.logo-dark {
+  display: none;
+}
+
+/* Ensure header logos display correctly initially */
+.logo .logo-light {
+  display: block; /* Adjust if needed, e.g., inline-block */
+  height: 40px; /* Keep consistent height */
+}
+.logo .logo-dark {
+  display: none;
+  height: 40px; /* Keep consistent height */
+}
+
+/* Ensure main logos display correctly initially */
+.main-logo-container .logo-light {
+  display: block; /* Center using the container's text-align */
+}
+.main-logo-container .logo-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Hide light logos, show dark logos */
+  .logo-light {
+    display: none;
+  }
+  .logo-dark {
+    display: block; /* Or inline-block */
+  }
+
+  /* Explicitly set display for header logos in dark mode */
+  .logo .logo-light {
+    display: none;
+  }
+  .logo .logo-dark {
+    display: block; /* Or inline-block */
+  }
+
+  /* Explicitly set display for main logos in dark mode */
+  .main-logo-container .logo-light {
+    display: none;
+  }
+  .main-logo-container .logo-dark {
+    display: block; /* Center using the container's text-align */
+  }
+
+  /* Remove previous SVG path styling attempt */
+  /* .logo img #ver-path { fill: #fff; } */
+  /* .vero-text-logo #text-path { fill: #fff; } */
+}
+
+/* Main Content Styling */
+main {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  min-height: 100vh; /* Ensure main takes at least full viewport height */
+  padding-top: 80px; /* Add padding to account for fixed header height (adjust if header height changes) */
+  box-sizing: border-box; /* Include padding in height calculation */
+}
+
+#main-logo {
+  /* This container will be centered by the main flex settings */
+  text-align: center; /* Center the images themselves within the container */
+  margin-bottom: 50px; /* Add some space before the placeholder content */
+  /* Ensure it doesn't push content down too far initially */
+  /* We rely on the main container's flex properties for centering */
+}
+
+/* Placeholder content styling */
+.placeholder-content {
+  height: 150vh;
+  background-color: #f0f0f0;
+  color: #333; /* Darker text on light background */
+  padding: 20px;
+  width: 100%; /* Make it take full width */
+  box-sizing: border-box;
+  text-align: center;
+} 

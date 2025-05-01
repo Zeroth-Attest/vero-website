@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vero</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo" id="header-logo">
+        <!-- Use the vero logos -->
+        <img class="logo-light" src="./assets/img/vero.svg" alt="Vero Logo Light">
+        <img class="logo-dark" src="./assets/img/vero-dark.svg" alt="Vero Logo Dark">
+      </div>
+      <ul>
+          <!-- Placeholder links -->
+          <li><a href="#">Light Paper</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Replace H1 with the vero text logos -->
+    <div class="main-logo-container" id="main-logo">
+      <img class="vero-text-logo logo-light" src="./assets/img/vero-text.svg" alt="Vero Text Logo Light" style="max-width: 90%; height: auto;">
+      <img class="vero-text-logo logo-dark" src="./assets/img/vero-text-dark.svg" alt="Vero Text Logo Dark" style="max-width: 90%; height: auto;">
+    </div>
+
+    <!-- Add placeholder content for scrolling -->
+    <div class="placeholder-content">
+        <h2>Placeholder Content</h2>
+        <p>Scroll down to see the header logo reappear.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </main>
+
+  <footer>
+    <!-- Footer content will be added later -->
+     <p>&copy; 2025 Vero. All rights reserved.</p>
+  </footer>
+
+  <!-- Script for Intersection Observer -->
+  <script>
+    const headerLogo = document.getElementById('header-logo');
+    const mainLogo = document.getElementById('main-logo');
+
+    const observerOptions = {
+      root: null, // Use the viewport as the root
+      rootMargin: '0px',
+      threshold: 0.1 // Trigger when 10% of the element is visible
+    };
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Main logo is visible, hide header logo
+          headerLogo.classList.add('hidden');
+        } else {
+          // Main logo is not visible, show header logo
+          headerLogo.classList.remove('hidden');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Start observing the main logo container
+    if (mainLogo) {
+      observer.observe(mainLogo);
+    } else {
+      // If main logo isn't present for some reason, ensure header logo is visible
+      headerLogo.classList.remove('hidden');
+    }
+  </script>
+</body>
+
+</html> 
