@@ -7,10 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     accordionContainers.forEach(container => {
         const accordionItems = container.querySelectorAll('.accordion-item');
         
-        // Set initial state - expand first item in each accordion
-        if (accordionItems.length > 0) {
-            accordionItems[0].classList.add('active');
-        }
+        // Set initial state - all items collapsed
         
         // Add click handlers to all headers
         accordionItems.forEach(item => {
